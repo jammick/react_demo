@@ -5,6 +5,97 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: 
+    radial-gradient(ellipse 120% 80% at 30% 20%, rgba(135, 206, 250, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 150% 90% at 70% 80%, rgba(154, 205, 50, 0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 130% 70% at 50% 50%, rgba(230, 230, 250, 0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 140% 85% at 20% 70%, rgba(255, 228, 196, 0.05) 0%, transparent 55%),
+    linear-gradient(135deg, 
+      #0d1117 0%, 
+      #161b22 25%, 
+      #1c2128 50%, 
+      #161b22 75%, 
+      #0d1117 100%);
+  min-height: 100vh;
+  color: #e0e0e0;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* 微光流动效果 - 明亮通透 */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background: 
+    radial-gradient(circle 150px at 25% 35%, rgba(135, 206, 250, 0.15) 0%, transparent 100%),
+    radial-gradient(circle 120px at 75% 25%, rgba(154, 205, 50, 0.12) 0%, transparent 100%),
+    radial-gradient(circle 180px at 15% 75%, rgba(230, 230, 250, 0.10) 0%, transparent 100%),
+    radial-gradient(circle 140px at 85% 65%, rgba(255, 228, 196, 0.08) 0%, transparent 100%),
+    radial-gradient(circle 160px at 45% 15%, rgba(135, 206, 250, 0.13) 0%, transparent 100%),
+    radial-gradient(circle 130px at 55% 85%, rgba(154, 205, 50, 0.11) 0%, transparent 100%),
+    radial-gradient(circle 170px at 35% 45%, rgba(230, 230, 250, 0.09) 0%, transparent 100%),
+    radial-gradient(circle 150px at 65% 35%, rgba(255, 228, 196, 0.07) 0%, transparent 100%);
+  animation: glowFlow 25s ease-in-out infinite alternate;
+}
+
+@keyframes glowFlow {
+  0% {
+    opacity: 0.6;
+    transform: translateX(-20px) translateY(-10px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(20px) translateY(10px);
+  }
+  100% {
+    opacity: 0.6;
+    transform: translateX(-20px) translateY(-10px);
+  }
+}
+
+/* 细腻光晕效果 - 精致优雅 */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  background: 
+    radial-gradient(circle 80px at 20% 30%, rgba(135, 206, 250, 0.20) 0%, transparent 100%),
+    radial-gradient(circle 100px at 80% 40%, rgba(154, 205, 50, 0.18) 0%, transparent 100%),
+    radial-gradient(circle 90px at 40% 70%, rgba(230, 230, 250, 0.16) 0%, transparent 100%),
+    radial-gradient(circle 110px at 60% 60%, rgba(255, 228, 196, 0.14) 0%, transparent 100%),
+    radial-gradient(circle 70px at 30% 50%, rgba(135, 206, 250, 0.22) 0%, transparent 100%),
+    radial-gradient(circle 95px at 70% 20%, rgba(154, 205, 50, 0.19) 0%, transparent 100%),
+    radial-gradient(circle 85px at 50% 80%, rgba(230, 230, 250, 0.17) 0%, transparent 100%),
+    radial-gradient(circle 105px at 25% 65%, rgba(255, 228, 196, 0.15) 0%, transparent 100%),
+    radial-gradient(circle 75px at 75% 75%, rgba(135, 206, 250, 0.21) 0%, transparent 100%),
+    radial-gradient(circle 92px at 55% 25%, rgba(154, 205, 50, 0.20) 0%, transparent 100%);
+  animation: haloGlow 30s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes haloGlow {
+  0% {
+    opacity: 0.5;
+    filter: blur(0px);
+  }
+  50% {
+    opacity: 0.9;
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 0.5;
+    filter: blur(0px);
+  }
 }
 
 code {
@@ -45,6 +136,7 @@ button {
   -webkit-font-smoothing: inherit;
   -moz-osx-font-smoothing: inherit;
   -webkit-appearance: none;
+  appearance: none;
 }
 button::-moz-focus-inner {
   border: 0;
@@ -73,8 +165,7 @@ body {
   font:
     1.6rem/1.25 Arial,
     sans-serif;
-  background-color: #f5f5f5;
-  color: #4d4d4d;
+  color: #e0e0e0;
 }
 @media screen and (min-width: 620px) {
   body {
@@ -88,31 +179,99 @@ body {
   display: inline-block;
   margin-top: 0.4rem;
 }
+
 .btn {
-  padding: 0.8rem 1rem 0.7rem;
-  border: 0.2rem solid #4d4d4d;
+  padding: 0.8rem 1.8rem 0.7rem;
+  border: 1px solid rgba(135, 206, 250, 0.3);
   cursor: pointer;
   text-transform: capitalize;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transform: translateY(0);
+  border-radius: 12px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(135, 206, 250, 0.1), rgba(154, 205, 50, 0.1));
+  backdrop-filter: blur(10px);
+  color: #e0e0e0;
 }
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(135, 206, 250, 0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-color: rgba(135, 206, 250, 0.6);
+  box-shadow: 
+    0 8px 30px rgba(135, 206, 250, 0.3),
+    0 0 20px rgba(135, 206, 250, 0.1),
+    inset 0 0 20px rgba(135, 206, 250, 0.05);
+}
+
+.btn:active {
+  transform: translateY(-1px) scale(1);
+  box-shadow: 
+    0 4px 15px rgba(135, 206, 250, 0.2),
+    inset 0 0 10px rgba(135, 206, 250, 0.08);
+}
+
 .btn.toggle-btn {
   border-width: 1px;
-  border-color: #d3d3d3;
+  border-color: rgba(135, 206, 250, 0.3);
+  background: rgba(13, 17, 23, 0.6);
 }
+
 .btn.toggle-btn[aria-pressed="true"] {
-  text-decoration: underline;
-  border-color: #4d4d4d;
+  background: linear-gradient(135deg, rgba(135, 206, 250, 0.3), rgba(154, 205, 50, 0.2));
+  border-color: rgba(135, 206, 250, 0.7);
+  box-shadow: 
+    0 0 25px rgba(135, 206, 250, 0.4),
+    inset 0 0 20px rgba(135, 206, 250, 0.1);
+  text-decoration: none;
+  transform: scale(1.05);
 }
+
 .btn__danger {
   color: #fff;
-  background-color: #ca3c3c;
-  border-color: #bd2130;
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.2), rgba(255, 75, 75, 0.15));
+  border-color: rgba(255, 107, 107, 0.4);
 }
-.btn__filter {
-  border-color: lightgrey;
+
+.btn__danger:hover {
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.3), rgba(255, 75, 75, 0.25));
+  border-color: rgba(255, 107, 107, 0.6);
+  box-shadow: 
+    0 8px 30px rgba(255, 107, 107, 0.3),
+    0 0 20px rgba(255, 107, 107, 0.1);
 }
+
 .btn__primary {
   color: #fff;
-  background-color: #000;
+  background: linear-gradient(135deg, rgba(135, 206, 250, 0.3), rgba(154, 205, 50, 0.2));
+  border-color: rgba(135, 206, 250, 0.5);
+}
+
+.btn__primary:hover {
+  background: linear-gradient(135deg, rgba(135, 206, 250, 0.4), rgba(154, 205, 50, 0.3));
+  border-color: rgba(135, 206, 250, 0.7);
+  box-shadow: 
+    0 8px 30px rgba(135, 206, 250, 0.3),
+    0 0 20px rgba(135, 206, 250, 0.1),
+    inset 0 0 20px rgba(135, 206, 250, 0.1);
 }
 .btn-group {
   display: flex;
@@ -161,49 +320,119 @@ body {
 }
 /* END GLOBAL STYLES */
 .todoapp {
-  background: #fff;
-  margin: 2rem 0 4rem 0;
-  padding: 1rem;
+  background: rgba(13, 17, 23, 0.85);
+  margin: 3rem 0 6rem 0;
+  padding: 2.5rem;
   position: relative;
   box-shadow:
-    0 2px 4px 0 rgba(0, 0, 0, 0.2),
-    0 2.5rem 5rem 0 rgba(0, 0, 0, 0.1);
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 60px rgba(135, 206, 250, 0.1),
+    inset 0 0 40px rgba(135, 206, 250, 0.03);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(135, 206, 250, 0.15);
+  overflow: hidden;
 }
+
+.todoapp::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 50% 50%, rgba(135, 206, 250, 0.05) 0%, transparent 70%);
+  animation: appGlow 8s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes appGlow {
+  0% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
 @media screen and (min-width: 550px) {
   .todoapp {
     padding: 4rem;
   }
 }
+
 .todoapp > * {
   max-width: 50rem;
   margin-left: auto;
   margin-right: auto;
+  position: relative;
+  z-index: 1;
 }
+
 .todoapp > form {
   max-width: 100%;
 }
+
 .todoapp > h1 {
   display: block;
   max-width: 100%;
   text-align: center;
   margin: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  background: linear-gradient(135deg, rgba(135, 206, 250, 0.9), rgba(154, 205, 50, 0.9));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(135, 206, 250, 0.5);
+  animation: titleGlow 3s ease-in-out infinite alternate;
 }
+
+@keyframes titleGlow {
+  0% {
+    filter: drop-shadow(0 0 10px rgba(135, 206, 250, 0.3));
+  }
+  100% {
+    filter: drop-shadow(0 0 20px rgba(135, 206, 250, 0.6));
+  }
+}
+
 .label__lg {
   line-height: 1.01567;
   font-weight: 300;
   padding: 0.8rem;
   margin-bottom: 1rem;
   text-align: center;
+  color: #e0e0e0;
 }
+
 .input__lg {
-  padding: 2rem;
-  border: 2px solid #000;
+  padding: 1.8rem 2rem;
+  border: 2px solid rgba(135, 206, 250, 0.2);
+  background: rgba(13, 17, 23, 0.6);
+  color: #e0e0e0;
+  border-radius: 15px;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  backdrop-filter: blur(10px);
+  font-size: 1.6rem;
+  box-shadow: inset 0 0 20px rgba(135, 206, 250, 0.03);
 }
+
 .input__lg:focus {
-  border-color: #4d4d4d;
-  box-shadow: inset 0 0 0 2px;
+  border-color: rgba(135, 206, 250, 0.6);
+  background: rgba(13, 17, 23, 0.8);
+  box-shadow: 
+    0 0 0 4px rgba(135, 206, 250, 0.15),
+    0 0 30px rgba(135, 206, 250, 0.2),
+    inset 0 0 30px rgba(135, 206, 250, 0.05);
+  transform: scale(1.02);
+  outline: none;
 }
+
 [class*="__lg"] {
   display: inline-block;
   width: 100%;
@@ -226,19 +455,68 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 15px;
+  background: rgba(13, 17, 23, 0.4);
+  border: 1px solid rgba(135, 206, 250, 0.1);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  position: relative;
+  overflow: hidden;
 }
+
+.todo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(135, 206, 250, 0.08), transparent);
+  transition: left 0.8s ease;
+}
+
+.todo:hover::before {
+  left: 100%;
+}
+
+.todo:hover {
+  background: rgba(13, 17, 23, 0.7);
+  border-color: rgba(135, 206, 250, 0.3);
+  transform: translateX(5px);
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(135, 206, 250, 0.1);
+}
+
 .todo > * {
   flex: 0 0 100%;
+  position: relative;
+  z-index: 1;
 }
+
 .todo-text {
   width: 100%;
   min-height: 4.4rem;
-  padding: 0.4rem 0.8rem;
-  border: 2px solid #565656;
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(135, 206, 250, 0.15);
+  background: rgba(13, 17, 23, 0.5);
+  color: #e0e0e0;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  font-size: 1.4rem;
+  backdrop-filter: blur(5px);
 }
+
 .todo-text:focus {
-  box-shadow: inset 0 0 0 2px;
+  border-color: rgba(135, 206, 250, 0.5);
+  background: rgba(13, 17, 23, 0.7);
+  box-shadow: 
+    0 0 0 3px rgba(135, 206, 250, 0.15),
+    0 0 25px rgba(135, 206, 250, 0.15);
+  outline: none;
 }
+
 /* CHECKBOX STYLES */
 .c-cb {
   box-sizing: border-box;
@@ -249,18 +527,21 @@ body {
   line-height: 1.25;
   display: block;
   position: relative;
-  min-height: 44px;
-  padding-left: 40px;
+  min-height: 48px;
+  padding-left: 50px;
   clear: left;
+  margin-bottom: 1rem;
 }
+
 .c-cb > label::before,
 .c-cb > input[type="checkbox"] {
   box-sizing: border-box;
   top: -2px;
   left: -2px;
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
 }
+
 .c-cb > input[type="checkbox"] {
   -webkit-font-smoothing: antialiased;
   cursor: pointer;
@@ -269,41 +550,131 @@ body {
   margin: 0;
   opacity: 0;
 }
+
 .c-cb > label {
   font-size: inherit;
   font-family: inherit;
   line-height: inherit;
   display: inline-block;
   margin-bottom: 0;
-  padding: 8px 15px 5px;
+  padding: 10px 15px 5px;
   cursor: pointer;
   touch-action: manipulation;
+  color: #e0e0e0;
 }
+
 .c-cb > label::before {
   content: "";
   position: absolute;
-  border: 2px solid currentcolor;
-  background: transparent;
+  border: 2px solid rgba(135, 206, 250, 0.4);
+  background: rgba(13, 17, 23, 0.5);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  box-shadow: inset 0 0 10px rgba(135, 206, 250, 0.05);
 }
+
 .c-cb > input[type="checkbox"]:focus + label::before {
-  border-width: 4px;
-  outline: 3px dashed #228bec;
+  border-width: 3px;
+  box-shadow: 
+    0 0 0 4px rgba(135, 206, 250, 0.15),
+    inset 0 0 15px rgba(135, 206, 250, 0.1);
 }
+
 .c-cb > label::after {
   box-sizing: content-box;
   content: "";
   position: absolute;
-  top: 11px;
-  left: 9px;
-  width: 18px;
-  height: 7px;
+  top: 14px;
+  left: 12px;
+  width: 20px;
+  height: 8px;
   transform: rotate(-45deg);
   border: solid;
-  border-width: 0 0 5px 5px;
+  border-width: 0 0 4px 4px;
   border-top-color: transparent;
   opacity: 0;
   background: transparent;
 }
+
+.c-cb > input[type="checkbox"]:checked + label::before {
+  background: linear-gradient(135deg, rgba(135, 206, 250, 0.4), rgba(154, 205, 50, 0.3));
+  border-color: rgba(135, 206, 250, 0.7);
+  box-shadow: 
+    0 0 20px rgba(135, 206, 250, 0.3),
+    inset 0 0 20px rgba(135, 206, 250, 0.1);
+  transform: scale(1.1);
+}
+
 .c-cb > input[type="checkbox"]:checked + label::after {
   opacity: 1;
+  border-color: rgba(135, 206, 250, 0.9);
+}
+
+
+/* Todo List Animation */
+.todo {
+  animation: slideIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Edit Input Animation */
+.todo-text {
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* List Heading Style */
+#list-heading {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: rgba(135, 206, 250, 0.7);
+  letter-spacing: 1px;
+  margin: 2rem 0 1.5rem 0;
+  position: relative;
+  padding: 1rem;
+  background: linear-gradient(90deg, 
+    transparent,
+    rgba(135, 206, 250, 0.05),
+    transparent);
+}
+
+#list-heading::before,
+#list-heading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 100px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(135, 206, 250, 0.3));
+}
+
+#list-heading::before {
+  left: 0;
+}
+
+#list-heading::after {
+  right: 0;
+  transform: scaleX(-1);
 }
